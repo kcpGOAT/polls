@@ -21,6 +21,7 @@ ggplot(by_pollster, aes(reorder(pollster, sample_size), sample_size)) +
   labs(y = "Sample size", x = NULL, 
        title = "Pollsters by their average sample size")
 
+# covid19_econ_questions.png
 ggplot(by_pollster[by_pollster$prop_econ != 0, ], 
        aes(reorder(pollster, prop_econ), prop_econ)) +
   geom_bar(stat = "identity", aes(fill = prop_econ == 1)) +
@@ -50,6 +51,7 @@ net_approval_mod <- lm(net_approval ~ end_date, data = biden_approval1)
 biden_approval1 <- biden_approval1 %>%
   add_predictions(net_approval_mod, var = "net_approval_pred")
 
+# biden_net_approval.png
 ggplot(biden_approval1, aes(end_date, net_approval, group = 1)) +
   geom_line(aes(y = net_approval)) +
   geom_line(aes(y = net_approval_pred), alpha = 0.2) +
@@ -63,7 +65,7 @@ ggplot(biden_approval1, aes(end_date, net_approval, group = 1)) +
   guides(fill = "none") +
   theme(text = element_text(face = "bold"))
 
-
+# biden_net_approval_color.png
 ggplot(biden_approval1, aes(end_date, net_approval, group = 1)) +
   geom_line(aes(y = net_approval)) +
   geom_area(aes(y = net_approval), fill = "black") +
