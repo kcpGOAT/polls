@@ -82,11 +82,6 @@ ggplot(biden_approval1, aes(end_date, net_approval, group = 1)) +
   guides(fill = "none") +
   theme(text = element_text(face = "bold"))
 
-ggplot(biden_approval1, aes(end_date, net_approval)) +
-  geom_bar(stat = "identity") +
-  theme_light()
-
-
 
 
 
